@@ -62,7 +62,7 @@ func NewMPIJobInformer(client versioned.Interface, namespace string, resyncPerio
 }
 
 func defaultMPIJobInformer(client versioned.Interface, resyncPeriod time.Duration) cache.SharedIndexInformer {
-	return NewMPIJobInformer(client, v1.NamespaceAll, resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc})
+	return NewMPIJobInformer(client, "kubemaker", resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc})
 }
 
 func (f *mPIJobInformer) Informer() cache.SharedIndexInformer {
